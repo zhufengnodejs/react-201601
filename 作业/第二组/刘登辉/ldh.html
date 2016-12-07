@@ -1,0 +1,27 @@
+
+    1. 什么是`Git`?
+    2. 什么是`GitHub`?
+    3. git如何从master分支创建develop分支?
+    4. git怎么切换分支,切换分支的时候应注意哪些?
+    5. 怎么查看git的*状态*,结果中的红色表示什么?绿色表示什么?
+    5. 创建一个属于自己的git仓库,使用ssh的方式提交到github上，并提空github地址?
+    6. `babel-cli`这个模块提供了那两个命令?
+    7. `babel`是什么?babel能够做什么,能够解析那些语法?
+    8. babel的配置文件是什么? *preset* 和 *plugin* 的区别和关联?
+    9. `babel` *编译单个* 文件使用什么命令?
+    10. babel *编译文件夹* 使用什么命令?
+
+    答案：
+    1.git 是一款免费、开源的分布式代码版本管理工具。
+    2.github 是一个代码项目托管平台。
+    3.git branch branchName
+    4.git checkout branchName , 切换分支时要注意先commit代码，不然代码可能会丢失
+    5.git status ;  红色表示还没有进入到暂存区，绿色代表还没有commit
+    5.git init, npm init -y ,ssh-keygen;
+        $ git config --global user.name "xuhaiyan"
+        $ git config --global user.email "haiyan.xu.vip@gmail.com"
+    6.  babel, babel-node两个命令
+    7. babel是js的编译器，babel能够解析es2015，es2016,react等一系列浏览器不支持的js
+    8. .babelrc, preset是一系列plugin的封装。
+    9. babel filename -o filename2
+    10 babel dirname -d dirname2
