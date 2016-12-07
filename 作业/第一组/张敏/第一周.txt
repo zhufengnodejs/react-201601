@@ -1,1 +1,51 @@
-第一周作业答案
+﻿1.什么是Git?
+Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目
+
+2.什么是GitHub?
+GitHub是一个面向开源及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名 GitHub.
+
+3. git如何从master分支创建develop分支?
+在git bash中输入命令:git branch develop
+
+4. git怎么切换分支,切换分支的时候应注意哪些?
+在git bash中输入命令:git checkout 分支名,切换分支的时候要注意切换之前的分支没有任何操作，是干净的.
+
+
+5. 怎么查看git的*状态*,结果中的红色表示什么?绿色表示什么?
+在git bash中输入命令:git status
+绿色是已经加入到暂存区，但是还没提交到本地仓库也就是还没执行git commit -m '一些提交的说明'
+红色是代表未添加到暂存区，也就是还没执行git add xxx
+
+
+5. 请描述下如果需要把本地的git仓库以ssh key的方式提交到github的话，需要如何配置？
+  第一步:首先使用git remote -v,查看当前是用什么方式clone的,
+	 如果之前是使用了https的方式的，那么需要先清除配置，具体的就是用git remote rm origin
+
+  第二步:复制ssh地址，执行git remote add origin ssh地址
+
+  第三步:查看本地是否有配置公钥(放到githup中的ssh and gpg keys单元中去)和私钥(留在本地)，具体使用cd ~/.ssh/
+  第四步：如果没有就执行ssh-keygen -t rsa -c "邮箱",生成一个		
+  第五步:执行cd ~/.ssh/查看 公钥，私钥，执行cat 公钥，打开复制，把公钥中的内容复制添加到ssh and gpg keys单元中去
+
+
+
+6. `babel-cli`这个模块提供了那两个命令?
+ node 和babel -node
+
+
+7. `babel`是什么?babel能够做什么,能够解析那些语法?
+babel是javascript编译器。可以解析es6\es7\jsx\react
+
+
+8. babel的配置文件是什么? *preset* 和 *plugin* 的区别和关联?
+babel的配置文件是.babelrc
+
+  preset是对plugin的一个集成，babel官网里的Plugins是官方提供的一些preset，可以自己封装一些Plugin或者preset来满足自己项目的需求
+
+9. `babel` *编译单个* 文件使用什么命令?
+
+babel + 文件名+--out-files +编译后的文件
+
+10. babel *编译文件夹* 使用什么命令?
+babel + 文件名+--out-dir +编译后的文件 
+
