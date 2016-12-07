@@ -18,6 +18,8 @@
 7.babel-cli这个模块提供了那两个命令?
 答：编译单个文件,在终端运行  babel "文件名" --out-file “编译后文件名”  
     编译文件夹,在终端运行  babel "文件夹名" --out-dir “编译后文件夹民”  
+
+    原来理解错误：修正  babel  和babel-node
 8.babel是什么?babel能够做什么,能够解析那些语法?
 答：babel  是javascript编译器，把最新的javascript标准转为我们通常使用的标准，比较常用的解析（es6、jsx）
 9.babel的配置文件是什么? preset 和 plugin 的区别和关联?
