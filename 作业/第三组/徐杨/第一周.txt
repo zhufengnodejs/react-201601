@@ -1,0 +1,55 @@
+﻿第一周作业答案
+1. 什么是`Git`?
+Res: GIT （分布式版本控制系统） 
+Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git的读音为/gɪt/。
+Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。
+Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如 很多 Freedesktop 的项目迁移到了 Git 上。
+
+
+
+2. 什么是`GitHub`?
+Res: Github 
+GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。
+GitHub 于 2008 年 4 月 10 日正式上线，除了 Git 代码仓库托管及基本的 Web 管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过350万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery 等。
+
+
+
+3. git如何从master分支创建develop分支?
+Res: git branch develop
+
+
+
+4. git怎么切换分支,切换分支的时候应注意哪些?
+Res: git checkout develop
+
+
+
+5. 怎么查看git的*状态*,结果中的红色表示什么?绿色表示什么?
+Res: git status 
+console中红色表示代码存在改动冲突未提交到Index库里即git add，绿色表示代码冲突解决并发起提交到Index库里即git add。
+
+
+
+6. 请描述下如果需要把本地的git仓库以ssh key的方式提交到github的话，需要如何配置？
+Res: 使用SSH url克隆却需要在克隆之前先配置和添加好SSH key，因此，如果你想要使用SSH url克隆的话，你必须是这个项目的拥有者。否则你是无法添加SSH key的，另外SSH默认是每次fetch和push代码都不需要输入账号和密码，如果你想要每次都输入账号密码才能进行fetch和push也可以另外进行设置。
+
+步骤：1、查看本地是否有SSH key， 
+cd ~/.ssh/
+      2、创建SSH keygen，
+ssh-keygen -t rsa -C "303511012@qq.com"
+      3、查看本地私钥文件，
+cd ~/.ssh/
+cat id_rsa
+cat id_rsa.pub
+      4、复制查询出的公钥信息，到git => setting => SSH and GPG keys 内,
+      5、完成提交
+git add test.js
+git commit -m "add test.js"
+git push origin master
+
+
+7. `babel-cli`这个模块提供了那两个命令?
+8. `babel`是什么?babel能够做什么,能够解析那些语法?
+9. babel的配置文件是什么? *preset* 和 *plugin* 的区别和关联?
+10. `babel` *编译单个* 文件使用什么命令?
+10. babel *编译文件夹* 使用什么命令?
