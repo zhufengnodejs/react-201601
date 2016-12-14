@@ -1,0 +1,131 @@
+1.介绍一下webpack?
+答：前端构建工具,打包发布，对静态文件（css、js、img)使用loader进行处理
+
+2.箭头函数支持的两种写法是什么？函数里的this指向谁？
+答：如果一个表达式的代码块, 只是 return 后面跟一个表达式
+var sum3 = (num1, num2) => num1 + num2;
+如果某个方法只含有一个参数
+console.info("=> ES5 写法");
+var curf1 = function(v) {
+return v;
+};
+如果某个方法没有参数。
+console.info("=> ES5 写法");
+var f1 = function() {
+return "xxxxx";
+};
+
+函数里的this指向最近一层作用域内的 this
+
+
+3.如何用es6的方法定义一个类，？（写个小例子，里面要包括公共方法私有方法和继承）
+var People = (function() {
+  var p = new WeakMap();
+  class People {
+    constructor(name) { //构造函数
+          var privateProperties = {
+        name: name
+    };
+    p.set(this, privateProperties);
+    }
+    sayName() {
+          console.log(this.name);
+    }
+
+    get name() {
+      return p.get(this).name;
+    }
+}
+return People;
+})();
+//继承People类
+class Student extends People {
+    constructor(name) { //构造函数
+        super(name);    //调用父类构造函数
+          this.name = name;
+    }
+    sayname2() {
+          console.log(this.name);
+    }
+}
+
+var p = new People("tom");
+console.log(p.name);
+p.sayName();
+
+4.以下str用es6的方法怎么写？
+
+var name=‘cat’,age=1,
+var str=name+’is’+age+’years old’
+
+var fix = `${name} is ${age} years old`
+
+5.以下对象怎么用解构赋值的方法怎么解析成一个个变量？
+
+var obj={
+    a:"1",
+    fn4:function(){console.log(this.a);},
+    bcc:[1,2,3]
+};
+var {a, fn4, bcc} = obj;
+
+6.以下数组怎么用解构赋值的方法怎么解析成一个个变量？
+
+    var ary=[‘cat’,’dog’,’fox’]
+
+    var [cat, dog, fox] = ary;
+
+7.es6函数怎么定义默认参数？怎么传任意参数的？（写个函数小例子）
+
+function purchase(name="apple"){
+   console.log(name);
+}
+function containsAll(haystack, ...needles) {
+  for (var needle of needles) {
+    if (haystack.indexOf(needle) === -1) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+8.写一下let和const的区别
+  const用来定义常量,不可以修改，而且必须初始化
+
+  let用来定义变量,具有块级作用域,不会变量提升,不允许重复声明
+
+9.用es6的方法写出import和export的几种方法
+
+export var a = 1;
+    exprot let obj = {
+        m:"2"
+    }
+    exprot function fn(){
+        console.log("test")
+    }
+
+
+    export default {
+       a:1,
+       fn(){
+            console.log("test")
+       }
+    }
+
+
+    var obj = {
+         a:1,
+         fn(){
+              console.log("test")
+         }
+      }
+    export default obj
+
+    import  * as module from  './module';
+    import { fn } from  './module';
+    import module from  './module';
+
+
+
+10.根据webpack视频所学，练习用webpack打包一个文件出来（包括，单独分离css,less文件，自动弹出浏览器，文件压缩等功能，做完上传到自己的仓库中，提交你的项目地址即可）
