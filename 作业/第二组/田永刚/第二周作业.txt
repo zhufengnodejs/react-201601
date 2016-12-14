@@ -1,0 +1,74 @@
+1、一款模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。
+2、表达式和函数体，this指向的是绑定定义时所在的对象，而不是使用时所在的对象，即"共享父作用域的关键字this"
+   表达式:let fn = p => p
+   函数体:lef fn = (a,b) => { var m = a * b;return m;}
+3、class Animal{
+  	constructor(name,age){
+  		this.name = name;
+  		this.age = age;
+  		this.sayHello = function(){
+  			console.log('Hello' + this.name);
+  		}
+  	}
+  	getMessage(){
+  		console.log(this.name + ' is ' + this.age + ' years old');
+  	}
+  	static showInfo(){
+  		console.log('show Info');
+  	}
+  }
+  class Cat extends Animal{
+  	constructor(name,age,color){
+  		super(name,age);
+  		this.color = color;
+  	}
+  	getColor(){
+  		console.log(this.name + ' is ' + this.color + ' cat');
+  	}
+  }
+  let cat = new Cat('Tom','18','blue');
+  cat.getMessage();
+  cat.getColor();
+4、var name = 'cat',age = 1;
+   var str = `${name} is ${age} years old`;
+5、var obj={
+  	a:"1",
+  	fn:function(){
+  		console.log(this);
+  	},
+  	bcc:[1,2,3]
+  };
+  var {a,fn,bcc:[b,c,d]} = obj;
+  console.log(fn);
+  fn();
+6、var ary=['cat','dog','fox'];
+  var [cat,dog,fox] = ary;
+  console.log(cat);
+  console.log(dog);
+  console.log(fox);
+7、/*默认情况下的参数*/
+  function add(a=1,b=1){
+  	return a + b;
+  }
+  var result = add();
+  console.log(result);
+
+  /*rest的任意参数*/
+  function argv(obj,...rest){
+  	console.log(rest);
+  }
+  var data = {title:'es6',content:'daydayup'}
+  argv(data,'tyg')
+8、let：定义变量，const：用来定义常量，都没有变量声明提前的特性
+9、##module.js
+export var a = 1;
+export let obj = {
+	m:'2'
+};
+export default function(a,b){
+	console.log(a + b);
+}
+##import-module.js
+import * as module from  './module'
+console.log(module);
+
