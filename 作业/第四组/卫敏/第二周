@@ -1,0 +1,74 @@
+1.介绍一下webpack?
+webpack是一款强大的模块加载器兼打包工具，能把各种资源，例如JS（jsx)、coffee、样式、图片等都作为模块来处理和使用
+2.箭头函数支持的两种写法是什么？函数里的this指向谁？
+箭头函数支持两种写法：表达式和函数体；this指向定义时所在的对象，而不是调用时的对象
+3.如何用es6的方法定义一个类，？（写个小例子，里面要包括公共方法私有方法和继承）
+class Animal{
+    constructor(name){
+        this.name=name;
+    }
+    getName(){
+        console.log(`${this.name}`)
+    }
+}
+
+class Cat extends Animal{
+    constructor(name,age,interest){
+        super(name,age);
+        this.interest=interest;
+    }
+    getAge(){
+        console.log(`${this.age}`);
+    }
+}
+
+4.以下str用es6的方法怎么写？
+
+```
+var name=‘cat’,age=1,
+var str=name+’is’+age+’years old’
+
+```
+let str = `${name} is ${age} years old`
+5.以下对象怎么用解构赋值的方法怎么解析成一个个变量？
+
+```
+var obj={
+	a:"1",
+	fn4:function(){console.log(this.a);},
+	bcc:[1,2,3]
+};
+
+```
+{a,fn4,bcc} = obj;
+6.以下数组怎么用解构赋值的方法怎么解析成一个个变量？
+```
+    var ary=[‘cat’,’dog’,’fox’]
+
+```
+[a,b,c]=ary;
+7.es6函数怎么定义默认参数？怎么传任意参数的？（写个函数小例子）
+var addSum = function([a=1,b=1]){
+    return a+b;
+}
+console.log("default param",addSum([,3]))
+
+
+var addMult = function(...rest){
+    return rest.reduce(function(pre,cur){
+      return pre+cur;
+    },0)
+}
+
+console.log("any values",addMult(1,2,3,4))
+
+8.写一下let和const的区别
+let定义一个变量，ES6中不能定义同名变量；
+const定义一个常量，而且声明时候必须赋值。
+9.用es6的方法写出import和export的几种方法
+export:                             import:
+export var a=1;                     import {a} from "./module.js";
+export let obj={name:"Lily"}        import * as module from "./module.js"
+export default {a:1}                import * as module from "./module.js"
+10.根据webpack视频所学，练习用webpack打包一个文件出来（包括，单独分离css,less文件，自动弹出浏览器，文件压缩等功能，做完上传到自己的仓库中，提交你的项目地址即可）
+git@github.com:yinggeABC/testResp.git

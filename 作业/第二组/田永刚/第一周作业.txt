@@ -1,0 +1,50 @@
+
+ 什么是Git? 
+  	是一款免费，开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
+ 什么是GitHub? 
+     是一个面向开源及私有软件项目的托管平台，因为只支持git作为唯一的版本库格式进行托管，故名GitHub。
+ git如何从master分支创建develop分支? 
+    git checkout -b branch_name
+ git怎么切换分支,切换分支的时候应注意哪些? 
+    git checkout branch_name,分支切换时候确保修改的文件都已经提交到历史区域
+ 怎么查看git的状态,结果中的红色表示什么?绿色表示什么? 
+    git status查看状态，红色代码文件存在工作区，绿色代表文件已经添加到缓存区
+ 创建一个属于自己的git仓库,使用ssh的方式提交到github上，并提空github地址? 
+ 	git remote add origin 远程仓库的ssh地址
+ 	git push origin master
+ babel-cli这个模块提供了那两个命令? 
+ babel是什么?babel能够做什么,能够解析那些语法? 
+ babel的配置文件是什么? preset 和 plugin 的区别和关联? 
+ babel 编译单个 文件使用什么命令? 
+ babel 编译文件夹 使用什么命令? 
+
+git reset --hard 版本号 这个版本号通过git log --oneline 进行获取
+git reset HEAD index.html :表示把历史区的index.html文件覆盖缓存区中的index.html文件
+git checkout -- index.html :表示把缓存区的中index.html文件覆盖工作区中的文件
+
+git rm index.js 从版本库中彻底删除
+
+git checkout -b dev 创建并切花到
+git branch -d dev 删除分支
+
+git merge --no-ff -m "merge with no-ff" dev 进入fast forward,因为fast forward会导致查看分支的时候，分支的历史提交会丢失
+
+git stash 的使用:主要是保护临时现场的作用
+
+1、首先使用git stash保存现场，然后创建一个新分支进行bug的修复，然后返回现在的分支
+2、git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除(git stash drop stash@{0})；
+   另一种方式是用git stash pop，恢复的同时把stash内容也删了：
+小结
+修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；
+
+当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug.
+修复后，再:
+
+git stash list 查看一下有哪些stash
+git stash apply 应用某个stash而不删除stash
+git stash pop 应用某个stash并且删除stash
+git stash clear 一次性清理所有的stash
+从而回到工作现场
+
+生成ssh
+ ssh-keygen -t rsa -C "youremail@example.com" 此操作需要在git仓库的文件夹下运行
