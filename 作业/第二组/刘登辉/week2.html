@@ -1,0 +1,127 @@
+
+1.介绍一下webpack?
+
+    webpack是把前端资源进行模块化管理和打包的一个工具
+    
+2.箭头函数支持的两种写法是什么？函数里的this指向谁？
+    test= (x)=> x;
+
+    test = (x) => {
+        var b = 1;
+        var res = b+x;
+        return res;
+    }
+    this指向这个函数本身
+
+3.如何用es6的方法定义一个类，？（写个小例子，里面要包括公共方法私有方法和继承）
+
+   class Person{
+       constructor(name,age){
+           this.name = name;
+           this.age =age;
+       }
+       showName(){
+           console.log(this.name);
+       }
+       static showAge(){
+           console.log(this.age);
+       }
+   }
+
+   class Worker extends Person{
+       constructor(name,age,job){
+           super(name,age);
+           this.job = job;
+       }
+   }
+
+4.以下str用es6的方法怎么写？
+
+var name=‘cat’,age=1,
+var str=name+’is’+age+’years old’
+
+let str = `${name} + is + ${age} years old`
+
+5.以下对象怎么用解构赋值的方法怎么解析成一个个变量？
+
+var obj={
+    a:"1",
+    fn4:function(){console.log(this.a);},
+    bcc:[1,2,3]
+};
+
+let {a,fn4,bcc} = obj;
+
+6.以下数组怎么用解构赋值的方法怎么解析成一个个变量？
+
+    var ary=[‘cat’,’dog’,’fox’]
+    var [x,y,z] = ary;
+
+7.es6函数怎么定义默认参数？怎么传任意参数的？（写个函数小例子）
+
+    //默认参数
+    var Person = (name="ldh", age=12) => name + ' ' +age;
+
+    //任意参数
+    function test(obj,...keys){}
+
+8.写一下let和const的区别
+    let和const都是局部变量。let声明后可被重新赋值，而const则不允许多次赋值。
+
+9.用es6的方法写出import和export的几种方法
+    export
+        1.   export var a = 1;
+        2.
+            var a = 1;
+            export a;
+        3.  var a = 1; b = 2;
+            export {
+                a: a,
+                b: b
+            }
+        4. export default a;
+  
+    import 
+
+       1.  import React from 'react';
+       2.  import {Component} from 'react';
+       3.  import React as r from 'react';
+
+10.根据webpack视频所学，练习用webpack打包一个文件出来（包括，单独分离css,less文件，自动弹出浏览器，文件压缩等功能，做完上传到自己的仓库中，提交你的项目地址即可）
+
+地址： https://github.com/wcx521/react_test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
