@@ -1,0 +1,89 @@
+1.介绍一下webpack?
+答：webpack是一个模块打包器。webpack把模块连同它的依赖一起打包生成包含这些模块的静态资源。
+
+2.箭头函数支持的两种写法是什么？函数里的this指向谁？
+答：表达式 var fn = (x, y) => x + y;
+    函  数 var fn = (x, y) => { let m=x+5;return m*y;}
+   
+    箭头函数没有this,和上一级作用域共享this。
+
+3.如何用es6的方法定义一个类，？（写个小例子，里面要包括公共方法私有方法和继承）
+答：
+  class Fruits {
+    constructor(x){
+     this.x=x;
+    }
+    staticFru(){
+      console.log("staticFru");
+    } 
+  }
+
+ class Apple extends Fruits {
+   constructor(x,y){
+     super(y)
+     this.y=y;
+   }
+  
+}
+
+4.以下str用es6的方法怎么写？
+
+var name=‘cat’,age=1,
+var str=name+’is’+age+’years old’
+
+答：	var name = 'cat', age = 1;
+	var str = `${name} is ${age} years old`;
+
+
+5.以下对象怎么用解构赋值的方法怎么解析成一个个变量？
+答：
+var obj={
+    a:"1",
+    fn4:function(){console.log(this.a);},
+    bcc:[1,2,3]
+};
+
+var {a, fn4 , bcc} = obj;
+
+
+6.以下数组怎么用解构赋值的方法怎么解析成一个个变量？
+答：
+    var ary=[‘cat’,’dog’,’fox’]
+    
+   var [cat, dog, fox] = ['cat','dog','fox']
+
+7.es6函数怎么定义默认参数？怎么传任意参数的？（写个函数小例子）
+答：
+
+function test(x = "m"){
+	console.log(x);
+}
+test(); // m
+
+8.写一下let和const的区别
+答：let变量赋值
+    const常量赋值
+
+9.用es6的方法写出import和export的几种方法
+
+答：(1)
+var sex="boy";
+var child=function(value){
+　　console.log(value)
+}
+export {sex,child} 
+ 
+(2)
+export var sex="boy";
+export var child=function(value){
+　　console.log(value)
+}
+(3)
+import {sex,child} from "./test.js" 
+console.log(sex)   // boy
+child(sex) // boy
+
+10.根据webpack视频所学，练习用webpack打包一个文件出来（包括，单独分离css,less文件，自动弹出浏览器，文件压缩等功能，做完上传到自己的仓库中，提交你的项目地址即可）
+答： https://github.com/16666/git-prom
+
+
