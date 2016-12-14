@@ -71,4 +71,5 @@ export default function(a,b){
 ##import-module.js
 import * as module from  './module'
 console.log(module);
+10.https://github.com/gaspar1986/webpack-demo
 
