@@ -1,0 +1,115 @@
+1.介绍一下webpack?
+webpack是一个打包工具，一个模块加载工具，各种资源都可以当成模块来处理
+
+2.箭头函数支持的两种写法是什么？函数里的this指向谁？
+
+1 简洁函数体 var fn = x => x * x;
+2 块级函数体 var fn = (x, y) => {return x + y;};
+
+箭头函数没有自己的 this ，而是会和上一层的作用域共享 this 。
+
+3.如何用es6的方法定义一个类，？（写个小例子，里面要包括公共方法私有方法和继承）
+
+class Parent{
+    constructor(val){
+        this.val = val;
+    }
+    parentFunc(){
+        console.log('Parent Function');
+    }
+    static staticFunc(){
+        console.log('Parent static Function');
+    }
+}
+
+class Child extends Parent{
+    constructor(val, attr){
+        super(val);
+        this.attr = attr;
+    }
+}
+4.以下str用es6的方法怎么写？
+
+var name=‘cat’,age=1;
+var str=name+’is’+age+’years old’;
+
+var name = 'cat', age = 1;
+var str = `${name} is ${age} years old`;
+5.以下对象怎么用解构赋值的方法怎么解析成一个个变量？
+
+var obj = {
+	a: "1",
+	fn4: function(){console.log(this.a);},
+	bcc: [1,2,3]
+};
+var {a, fn4 , bcc} = obj;
+6.以下数组怎么用解构赋值的方法怎么解析成一个个变量？
+
+    var ary=['cat','dog','fox']
+
+    var [cat, dog, fox] = ['cat','dog','fox']
+
+7.es6函数怎么定义默认参数？怎么传任意参数的？（写个函数小例子）
+
+function test(attr1 = 'test', attr2 = 1){
+    console.log(attr1, attr2);
+}
+
+test();   // test 1
+test(18);  // 18 1
+
+function test(attr1 = 'test', ...args){
+    console.log(attr1);
+    console.log(args);
+}
+
+test(7);   // 7 []
+test(18, 'a', 'b');  // 18 ["a", "b"]
+
+8.写一下let和const的区别
+const 声明的变量不允许再更改(如果是对象 是指引用不能更改)，不允许再赋值
+let 没有这种限制
+
+9.用es6的方法写出import和export的几种方法
+
+export
+export var firstName = 'Michael';
+export var lastName = 'Jackson';
+export var year = 1958;
+
+var firstName = 'Michael';
+var lastName = 'Jackson';
+var year = 1958;
+
+export {firstName, lastName, year};
+
+export function multiply(x, y) {
+  return x * y;
+};
+
+function v1() { ... }
+function v2() { ... }
+
+export {
+  v1 as streamV1,
+  v2 as streamV2,
+  v2 as streamLatestVersion
+};
+export default function () {
+  console.log('foo');
+}
+import
+import {firstName, lastName, year} from './profile';
+
+function setName(element) {
+  element.textContent = firstName + ' ' + lastName;
+}
+import * as circle from './circle';
+
+console.log('圆面积：' + circle.area(4));
+console.log('圆周长：' + circle.circumference(14));
+import { default as xxx } from 'modules';
+
+10.根据webpack视频所学，练习用webpack打包一个文件出来（包括，单独分离css,less文件，自动弹出浏览器，文件压缩等功能，做完上传到自己的仓库中，提交你的项目地址即可）
+
+https://github.com/fuyongfan/empty
