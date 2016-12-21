@@ -1,0 +1,29 @@
+ 1.state和props的用法和区别?
+ props是从外部传进来的，而state是组件内部管理数据的
+ 2.stateless component的定义和有点是什么？
+无状态组件实质上是一个函数组件，它不能被实例化，没有state。优点是可读性高，渲染性能好
+ 3.写jsx语法,是怎么引入样式名称和style的
+a. import "style.css"
+<div className="container"></div>
+b.const container={color:red}
+  <div style={container}></div>
+ 4.react render方法中 return一个组件的时候需要注意什么?
+需要注意： 必须有一个顶级的HTML标签
+ 5.react 怎么引入一个变量
+{varName}
+ 6.如何实现组件接口规范约束？
+  CompName.propTypes={
+  name:React.PropTypes.string.isRequired
+  }
+ 7.怎么设置组件默认参数
+ Comp.defaultProps={
+ name:"yingge",
+ age:18
+ }
+ 8.ref是什么?怎么获取ref对应的实例
+ ref是添加在虚拟DOM上的一个属性，用来引用还没有添加到真实DOM的节点
+ 9.react怎么获取DOM节点
+ReactDOM.findDOMNode(this.refs.refVal)
+10.react移除节点的两个方法是哪个?
+在相应组件中return null;
+unmountComponentAtNode(document.getElementById("app"))
