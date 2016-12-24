@@ -1,0 +1,96 @@
+1.state和props的用法和区别?
+state管理组件自己内部的数据
+props组件间的数据传递
+
+
+
+2.stateless component的定义和有点是什么？
+创建的是有状态的组件
+
+ React.creatClass({
+      render(){
+            return (
+                      <h1></h1>
+             )
+          }
+     })
+
+   class App extends Component{
+       return (
+          <h1></h1>
+       )
+     }
+
+
+3.写jsx语法,是怎么引入样式名称和style的
+方法一：
+import './index.css'
+方法二：
+const styles={
+      fontSize:'28px',
+      color:'red',
+      background:'yellow'
+    }
+<div className="container" style={styles}></div>
+
+
+
+4.react render方法中 return一个组件的时候需要注意什么?
+代码必须包裹在一个双标签内部，并且写小括号
+不写小括号的时候代码要紧跟着return
+
+
+5.react 怎么引入一个变量
+const data = {
+ "login": "gaspar1986",
+  "url": "https://avatars.githubusercontent.com/u/10862773?v=3"
+}
+render(<Profile name={data.login} url={data.url}/>,document.getElementById('app'));
+
+render(){
+		let data = this.props;
+		console.log(data);
+		return (
+			<div>
+				<img src={data.url} alt=""/>
+				<h2>{data.name}</h2>
+			</div>
+		)
+	}
+
+
+6.如何实现组件接口规范约束？
+Profile.propTypes={
+  url:React.propTypes.string,
+  name:React.propTypes.string.
+  id:React.propTypes.number.isRequired
+}
+
+
+7.怎么设置组件默认参数
+
+Profile.defaultProps={
+  name:"jiajing",
+  id:"0",
+  url:""
+}
+
+
+
+
+
+8.ref是什么?怎么获取ref对应的实例
+
+ref:用来操作DOM元素
+	this.refs.[refName]
+
+9.react怎么获取DOM节点
+this.refs.[refName].findDOMNode()
+
+
+10.react移除节点的两个方法是哪个?
+
+//this.getDOMNode().removeChild(this.el);
+ReactDOM.unmountComponentAtNode(document.getElementById("**"))
+
+return null
