@@ -1,0 +1,29 @@
+1. 什么是`Git`?
+Git是目前世界上最先进的分布式版本控制系统（没有之一）。
+2. 什么是`GitHub`?
+GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub
+3. git如何从master分支创建develop分支?
+git branch develop
+4. git怎么切换分支,切换分支的时候应注意哪些?
+git checkout other
+在你新建一个新分支从主分支上拉下来所有改变之前，你的主分支需要确保是最新的。
+5. 怎么查看git的*状态*,结果中的红色表示什么?绿色表示什么?
+git status
+绿色是加入git管控的文件
+红色是修改，冲突和新添加的文件
+5. 请描述下如果需要把本地的git仓库以ssh key的方式提交到github的话，需要如何配置？
+git remote add origin git@github.com:zhangwenjie1996/2016reactgit.git
+6. `babel-cli`这个模块提供了那两个命令?
+babel
+babel-node执行babel-node就进入PEPL环境，可以直接运行ES6脚本。
+
+7. `babel`是什么?babel能够做什么,能够解析那些语法?
+ Babel 是一个 JavaScript 编译器。 能把你写的 JS 变成其他版本的 JS,解析reactjsx 语法糖, es6/7,js 
+8. babel的配置文件是什么? *preset* 和 *plugin* 的区别和关联?
+.babelrc 
+preset 预设
+plugin 插件
+9. `babel` *编译单个* 文件使用什么命令?
+--out-file/o
+10. babel *编译文件夹* 使用什么命令?
+--out-dir/d 

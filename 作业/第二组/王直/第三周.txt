@@ -1,0 +1,72 @@
+1.state和props的用法和区别?
+  props组件间的数据传递，组件不能自己修改属性，但是可以从父组件获得属性，父组件可以修改子组件的属性，属性主要功能是组件间的通信
+  state管理组件自己内部的数据，只与组件自己相关，不与父组件、子组件相关，state会影响视图，行为改变状态，状态影响视图
+
+
+
+
+2.stateless component的定义和优点是什么？
+stateless无状态组件，他是为了创建纯展示组件，这种组件只负责根据传入的props来展示，不涉及到要根据state状态的变换而进行一系列的操作，他的优点是组件不会被实例化，整体渲染性能得到提升
+coponent有状态组件，是ES6的形式创建react的组件的，也是React目前推荐的创建有状态组件的方式，component创建的组件，其成员函数不会自动绑定this，需要开发者手动绑定，否则this不能获取当前组件实例对象。
+
+
+3.写jsx语法,是怎么引入样式名称和style的
+
+两种方法修改样式：
+第一种：行内样式
+render函数里边定义一个样式对象obj，然后return的标签上加上style={obj}
+第二种：外联样式
+单独创建一个样式文件，js里边import进来，下载安装style-loader css-loader,webpack.config.js里边配置好相应的loader：{test:/\.css$/,loader:'style!css'}
+
+
+4.react render方法中 return一个组件的时候需要注意什么?
+1）、render方法的return后面只能跟一个闭合的标签
+2）、return后面如果出现多行，要使用（）包起来
+
+
+5.react 怎么引入一个变量
+比如引入findDOMNode：
+import ReactDOM,{ render,findDOMNode} from 'react-dom';
+引入Children
+import React,{ Component ,Children} from 'react';
+
+
+
+6.如何实现组件接口规范约束？
+通过propTypes来规定组件属性的类型，比如给一个名为Profile的组件规定属性类型，可以写成这个样子
+Profile.propTypes={url:PropTypes.string,name:PropTypes.string,name,id:PropTypes.number.isRequired}
+
+
+7.怎么设置组件默认参数
+
+通过defaultProps来给组件设置默认参数,比如给一个名为Profile的组件规定属性默认值
+Profile.defaultProps={name:"wangzhi",id:"0",url:""}
+
+
+
+
+8.ref是什么?怎么获取ref对应的实例
+
+ref是操作DOM的一个属性，通过给组件设置ref属性，我们就可以通过findDOMNode(this.refs)方法获取到对应的元素。
+
+
+9.react怎么获取DOM节点
+
+通过this.props.children来获取父组件传给子组件的DOM节点
+
+
+10.react移除节点的两个方法是哪个?
+1）、直接在render函数里边return null
+2）、用unmountComponentAtNode(document.getElementById("app"))移除节点
+
+
+
+
+
+
+
+
+
+
+
+

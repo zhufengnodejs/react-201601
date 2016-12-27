@@ -1,0 +1,71 @@
+1、Webpack 是前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载。通过 loader 的转换，任何形式的资源都可以视作模块，比如 CommonJs 模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LESS 等。
+
+
+2、箭头函数的两种写法：
+ 1）表达式写法 var fn=(m,n)=>m+n
+ 2) 函数体写法 var fn=(m,n)=>{var a=m+2;return a+n}
+箭头函数里的this指向父作用域中的this。
+
+
+3、定义类
+Class Animal{
+      constructor(name,age){
+        this.name=name;
+        this.age=age;
+  }
+  getName(){console.log(this.name+"is"+this.age+"years old.")}
+}
+继承类
+Class Cat extends Animal{
+constructor(name,age,color){
+super(name,age);//继承父类属性
+this.color=color;//定义私有属性
+}
+getAnotherNane(){console.log(1)}//私有方法
+}
+
+
+4、var name="cat",age=1;
+   var str=`$(name) is $(age) years old.`
+
+
+5、var obj={
+	a:"1",
+	fn4:function(){console.log(this.a);},
+	bcc:[1,2,3]
+};
+
+  var {a,fn,bcc}=obj;
+
+
+6、 var ary=[‘cat’,’dog’,’fox’]
+    var [cat,dog,fox]=arr
+
+
+7、var fn=(m="a",n="b",...keys){
+    //此处m="a",n="b"就是默认参数写法
+    //keys就是除了"a" "b"剩余的传进来的参数
+}
+var arr=[4,5,6]
+fn(1,2,...arr)//此处...arr就是扩展运算符传参
+
+
+8、let会形成块级作用域，不存在变量提升
+   const用于定义常量，仅允许被赋值一次
+
+
+9、export var h=hello
+   export obj={}
+   export default function(){}
+
+   import *as module from ""
+   import {fn} from ""
+   import  a from ""
+
+10、https://github.com/Mwangzhi/react-lianxi
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+1. 什么是Git?
+git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目
+
+2. 什么是GitHub?
+github是一个面向开源及私有软件项目的托管平台，因为只支持git作为唯一的版本库格式进行托管，故名github
+
+3. git如何从master分支创建develop分支?
+git branch develop
+
+4. git怎么切换分支,切换分支的时候应注意哪些?
+git checkout 要切换的分支名
+
+5. 怎么查看git的状态,结果中的红色表示什么?绿色表示什么?
+git status
+红色表示文件在当前工作区，还没有被添加到暂存区
+绿色表示文件在暂存区，还没有提交到本地仓库
+
+6. 请描述下如果需要把本地的git仓库以ssh key的方式提交到github的话，需要如何配置？
+生成密钥
+ssh-keygen -t rsa -C"genghaode@126.com"
+查看公钥并复制
+cd ~/.ssh
+cat id_rsa.pub 
+将密钥复制到GitHub中：Settings->SSH and GPG keys->New SSH key->Add SSH key
+
+7. babel-cli这个模块提供了那两个命令?
+babel
+babel-node
+
+8. babel是什么?babel能够做什么,能够解析那些语法?
+babel是通用的多用途的javascript编译器
+babel可以把es6/7编译成es5
+支持jsx解析
+可以跟其他工具结合使用
+
+9. babel的配置文件是什么? preset 和 plugin 的区别和关联?
+配置文件：.babelrc
+preset是对一系列的plugin的集成
+
+10. babel 编译单个 文件使用什么命令?
+babel test.js -o output.js
+
+11. babel 编译文件夹 使用什么命令?
+babel src -d dist

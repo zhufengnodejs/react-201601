@@ -1,0 +1,32 @@
+1.什么是Git?
+答：分布式版本管理系统
+
+2.什么是GitHub?
+答：git代码远程托管的服务器
+
+3.git如何从master分支创建develop分支?
+答:先切换到master分支（git checkout master），然后执行git branch develop
+
+4.git怎么切换分支,切换分支的时候应注意哪些?
+答：git checkout "分支名"，切换分支前执行git add “修改文件名”  
+
+5.怎么查看git的状态,结果中的红色表示什么?绿色表示什么?
+答：git status可以查看状态，红色表示没有提交到暂存区（git add），绿色表示没有提交到历史版本区（git commit）
+
+6.创建一个属于自己的git仓库,使用ssh的方式提交到github上，并提空github地址?
+答：https://github.com/yangping731688/gitdemo.git
+7.babel-cli这个模块提供了那两个命令?
+答：编译单个文件,在终端运行  babel "文件名" --out-file “编译后文件名”  
+    编译文件夹,在终端运行  babel "文件夹名" --out-dir “编译后文件夹民”  
+
+    原来理解错误：修正  babel  和babel-node
+8.babel是什么?babel能够做什么,能够解析那些语法?
+答：babel  是javascript编译器，把最新的javascript标准转为我们通常使用的标准，比较常用的解析（es6、jsx）
+9.babel的配置文件是什么? preset 和 plugin 的区别和关联?
+答：文件名是.babelrc,preset设置需要转移的语法预设,plugin是babel 插件，功能类试preset预设，plugin可以做babel更细化的一些东西，比如
+es6处理字符串includes的方法安装babel-polyfill，当需要修改api的内置方法是需要安装plugin
+
+10.babel 编译单个 文件使用什么命令?
+答：编译单个文件,在终端运行  babel "文件名" --out-file “编译后文件名”  
+11.babel 编译文件夹 使用什么命令?
+答：编译文件夹,在终端运行  babel "文件夹名" --out-dir “编译后文件夹民”  
