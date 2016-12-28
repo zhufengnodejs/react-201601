@@ -1,0 +1,57 @@
+1.介绍一下React Router
+答：路由跳转
+
+2.使用react router的时候使用那几个属性,这几个属性的是做什么的?
+答：hashHistory-hash路由切换方式在#后更改、browserHistory-应用在生产中
+    Link-路由条状 、IndexLink-默认跳转  IndexRoute-默认路由 Redirect-路由重定向
+
+3.使用Link组件的方法,以及它的缺点
+答：<Link to='' ></Link>
+
+4.切换路由的几种方式
+答：browserHistory.push( path )、this.context.router.push( path )
+
+5.如何手动切换路由,写个例子
+答：class App extends Component {
+  handleSubmit( e ){
+    e.preventDefault()
+    browserHistory.push( path )
+  }
+
+  goBackWithMe(){
+    this.context.router.goBack()
+  }
+  render(){}
+    return (
+       <form action="" onSubmit={this.handleSubmit.bind(this)}>
+              <input type="text" placeholder="user name"/>
+              <input type="text" placeholder="repo"/>
+              <button type="submit"> go with me </button>
+              <button onClick={ this.goBackWithMe.bind(this) }> go back </button>
+        </form>
+   )
+}
+
+6.怎么使组件具有context属性
+答：
+App.contextTypes = {
+  router: React.PropTypes.object
+}
+
+7.什么是函数式编程?
+
+8.什么是纯函数?怎么写一个纯函数
+答：
+没有任何副作用，并且返回值只由输入决定的函数
+函数内的返回值不依赖于外部变量
+function（x）{
+    return fn(y){}
+}
+
+9.什么是函数柯里化?好处是什么
+答：？
+
+10.说一说高阶函数与柯里化函数的区别
+
+答：高阶函数是以一个函数作为参数，同时返回值为一个函数
+    柯里化没有对传入的参数类型做限定

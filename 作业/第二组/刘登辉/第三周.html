@@ -1,0 +1,70 @@
+
+1.state和props的用法和区别?
+    props 主要用于组件之间数据的传递;
+    state 主要负责组价内部数据的管理。
+2.stateless component的定义和优点是什么？
+
+    const App = () => <h1>hello jsx</h1>
+    优点：
+    大大增强了编写React组件的便利性，对整体的渲染性能有所提升
+
+
+3.写jsx语法,是怎么引入样式名称和style的
+
+    import "./index.css";
+
+    const style = {
+        fontSize:'22px',
+        background: 'red'
+    }
+
+4.react render方法中 return一个组件的时候需要注意什么?
+
+    只能返回出去唯一的一个包裹元素，不然会报错, 且最好用小括号包裹着。
+
+5.react 怎么引入一个变量
+
+    import React, { Component} from "react";
+
+6.如何实现组件接口规范约束？
+    假设MyComponent为自己设定组件，则：
+        MyComponent.propTypes = {
+            url: propTypes.string.isRequired
+        }
+7.怎么设置组件默认参数
+        MyComponent.propTypes = {
+            url: 'www.baidu.com',
+            author: 'ldh'
+        }
+
+
+8.ref是什么?怎么获取ref对应的实例
+    ref是react的一种特殊属性，可以绑定到任何render出来的元素身上。
+    获取实例的方法为：(假设ref="one") => this.refs.one
+    
+
+9.react怎么获取DOM节点
+    1.  this.refs.one.getDOMNode();
+    2.  React.findDOMNode(this.refs.one);
+
+10.react移除节点的两个方法是哪个?
+
+    1. unmountComponentAtNode(document.getElementById('#app'));
+    2. if(this.state.destroy){return null;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

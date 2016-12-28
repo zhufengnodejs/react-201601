@@ -1,0 +1,103 @@
+## 1.state和props的用法和区别?
+
+- 子组件可以通过props获取父组件传入的数据
+- state存在于组件内，对组件内的数据进行处理
+- state存放的是变化的组件数据，并只存在于组件内，props是外部传入的数据，相当于是组件的数据源，一般存放组件初始化后不变的数据和属性
+
+
+## 2.stateless component的定义和有点是什么？
+
+const App = () => <div>hello</div>
+- 渲染更高效
+- 内部不需要数据处理
+
+
+## 3.写jsx语法,是怎么引入样式名称和style的
+import React, {Component} from 'react'
+import './index.css'
+
+class MyComponent extends Component {
+  render(){
+    const myStyle = {
+      color: red;
+    }
+    return(
+      <div className={box} style={myStyle}></div>
+    )
+  }
+}
+
+
+
+## 4.react render方法中 return一个组件的时候需要注意什么?
+- 只能有一个根元素
+- jsx内属性名不能与js关键字冲突，用className替代class，htmlFor替代for
+- retun后不能没有内容直接换行
+
+## 5.react 怎么引入一个变量
+import React, {Component} from 'react'
+
+class MyComponent extends Component {
+  render(){
+    const obj = {
+      name: '123'
+    }
+    return(
+      <div>{obj.name}</div>
+    )
+  }
+}
+
+
+## 6.如何实现组件接口规范约束？
+import React, {Component, PropTypes} from 'react'
+
+class MyComponent extends Component {
+  render(){
+    return(
+      <div></div>
+    )
+  }
+}
+
+MyComponent.propTypes = {
+  name: PropTypes.string.isRequired
+}
+
+
+## 7.怎么设置组件默认参数
+
+import React, {Component} from 'react'
+
+class MyComponent extends Component {
+  render(){
+    return(
+      <div></div>
+    )
+  }
+}
+
+MyComponent.defaultProps = {
+  name: '123'
+}
+
+
+
+## 8.ref是什么?怎么获取ref对应的实例
+- 组件的属性，用来获取dom节点的
+- this.refs.content获取实例
+
+
+
+## 9.react怎么获取DOM节点
+
+- 通过ReactDOM.findDOMNode(this.refs.content)获取设置了属性ref='content'的组件的DOM对象
+
+
+
+## 10.react移除节点的两个方法是哪个?
+
+- 调用ReactDOM.componentWillUnmount()方法移除指定组件
+- 在render中直接return null实现移除的效果
+
+

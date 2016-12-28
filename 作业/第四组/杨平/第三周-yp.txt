@@ -1,0 +1,51 @@
+﻿## 1.state和props的用法和区别?
+答:state是组件内部数据管理，props组件间的数据传递，
+## 2.stateless component的定义和有点是什么？
+答  
+     React.creatClass({
+      render(){
+            return (
+                      <h1></h1>
+             )
+          }
+     })
+
+   class App extends Component{
+       return (
+          <h1></h1>
+       )
+     }
+## 3.写jsx语法,是怎么引入样式名称和style的
+答：import "*.css"
+
+    className  style={{width:100px,height:100px}}
+
+## 4.react render方法中 return一个组件的时候需要注意什么?
+
+答：只有一个父元素，包含若干子集，例如 <div>子组件。。。</div>
+   
+## 5.react 怎么引入一个变量
+答：${变量名}
+
+## 6.如何实现组件接口规范约束？
+
+答：eslint
+
+## 7.怎么设置组件默认参数
+答：propTypes={}
+
+## 8.ref是什么?怎么获取ref对应的实例
+ 
+答： 当前dom的引用，this.refs.[refName]
+
+## 9.react怎么获取DOM节点
+
+答：this.refs.[refName].findDOMNode()真是dom、this.refs.[refName]虚拟dom
+    e.target
+
+## 10.react移除节点的两个方法是哪个?
+答：
+//this.getDOMNode().removeChild(this.el);
+ReactDOM.unmountComponentAtNode(document.getElementById("**"))
+
+return null
