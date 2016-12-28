@@ -1,0 +1,155 @@
+1.介绍一下React Router
+
+ React Router是完整的React路由解决方案.
+ React Router保持UI于URL同步, 它拥有简单的API与强大的功能,例如代码延迟加载 动态路由匹配 以及帮助建立正确的位置过渡处理.
+
+
+2.使用react router的时候使用那几个属性,这几个属性的是做什么的?
+
+    Router:整体路由的根组件. 
+           history:路由地址的显示方式 
+    Route:用来指定单条路由.
+          path:每个单条路由对应的路径.
+          components:该path对应渲染的组件
+    IndexRoute:默认路由   
+    Redirect:路由重定向 ,可以用于带参数的路由刷新页面之后，如果不重新定向，会报错 
+
+
+
+3.使用Link组件的方法,以及它的缺点
+    import React, { Component } from 'react'
+    import { Link } from 'react-router'
+    
+    export default class App extends Component{
+        render(){
+            return(
+                <div>
+                    <h1> hello react router </h1>
+                    <ul>
+                        <li>
+                            <Link to='/'>首页</Link>
+                        </li>
+                        <li>
+                             <Link to='/contact'>联系我们</Link>
+                         </li>
+                    </ul>   
+                </div>
+            )
+        }
+    }
+
+缺点：会有默认行为，index会被默认选中，可以使用IndexLink来解决
+
+4.切换路由的几种方式
+
+<Link to='/'>首页</Link>
+browserHistory.push(path)、browserHistory.goback()//浏览器历史的方法
+this.context.router.push(path)
+
+
+
+5.如何手动切换路由,写个例子
+
+ import React,{ Component } from 'react';
+    import { Link ,browserHistory} from 'react-router'
+    export default class App extends Component{
+        handleSubmit(e){
+            e.preventDefault();
+            const username=e.target.elements[0].value;
+            const repo=e.target.elements[1].value;
+            const path=`/about/${username}/${repo}`;
+            browserHistory.push(path)
+        }
+        render(){
+            return <div>
+                <h1>hello react router</h1>
+                <ul>
+                    <li>
+                        <form action="" onSubmit={ this.handleSubmit}>
+                            <input type="text" placeholder="user name"/>
+                            <input type="text" placeholder="repo"/>
+                            <button type="submit">go with me</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        }
+    }
+
+
+
+
+6.怎么使组件具有context属性
+
+将组件改写为：   
+	App.contextTypes={
+       router:React.PropTypes.object
+   };
+   export default App 
+
+   之后就可以：this.context.router.push(path)
+
+7.什么是函数式编程?
+
+
+    函数式编程就是把函数本身上升到一等公民的地位，进行编程构建。
+
+
+
+
+
+8.什么是纯函数?怎么写一个纯函数
+
+一个没有任何副作用，并且返回值只和输入的值有关
+
+ slice:纯函数，输出结果不变的
+    splice:非纯函数
+
+    1.没有外部依赖（不从外部引入变量）
+
+    2.返回值不会影响外部变量
+    
+    3.多次执行函数，结果不变  
+    var x=5;
+    function add(y){
+    	return x+y;
+    }//非纯函数
+    function addpure(x){
+
+    	return funciton(y){
+    		return y+x
+    	}
+    }／／纯函数
+
+
+9.什么是函数柯里化?好处是什么
+
+只传递函数的一部分参数来调用他，让他返回一个函数去处理剩下的参数
+//柯里化
+    function addpure(x){
+
+    	return funciton(y){
+    		return y+x
+    	}
+    }
+//非柯里化
+    function addpure(x,y){
+    	return y+x
+    }
+
+
+好处：
+   1、参数复用：利用柯里化，我们可以固定住其中的部分参数，在调用的时候，这个参数就相当于
+   已经被记住了，不需要再次传递，也即是我们说的参数复用
+   2、延迟执行：不断的柯里化，累计传入的参数，最后执行, 函数柯里化给我们带来的的是，解决问题的一种逻辑思维方式
+
+10.说一说高阶函数与柯里化函数的区别
+
+高阶函数：函数内部返回函数
+
+柯里化函数:传入一部分参数，未必是函数，但是返回值是函数，
+
+
+
+
+
