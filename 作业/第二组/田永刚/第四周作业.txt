@@ -27,13 +27,15 @@ const router = (
   </Router>
 )
 // App.js
-import React, { Component } from 'react'
-import { Link, IndexLink, browserHistory } from 'react-router'
-
-import NavLink from './NavLink'
-
 class App extends Component {
-
+  handler(e){
+    e.preventDefault();
+    console.log(e.target);
+    const username = e.target.elements[0].value;
+    const repo = e.target.elements[1].value;
+    const path = `about/${username}/${repo}`;
+    browserHistory.push(path);
+  }
   render(){
     return (
       <div>
@@ -50,13 +52,18 @@ class App extends Component {
            <li>
             <Link to="/about" activeStyle={{color:'red',fontSize:'40px'}}>关于我们</Link>
           </li>  
-
+          <form action="" onSubmit = {this.handler}>
+            <input type="text" placeholder="user name"/>
+            <input type="text" placeholder="pro"/>
+            <button>go with me</button>
+          </form>
         </ul>
         {this.props.children}
       </div>
     )
   }
 }
+
 
 App.contextTypes = {
   router: React.PropTypes.object
