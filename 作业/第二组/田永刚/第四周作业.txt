@@ -13,7 +13,7 @@
 	to:pathname/query/hash/state
 	缺点:会匹配任何以/开始的子路由，我们访问的/路由器时，只希望展示某一部分组件
 4.切换路由的几种方式
-	Route IndexRoute Redirect
+	Link browserHistory this.context.router
 5.如何手动切换路由,写个例子
 //index.js
 const router = (
