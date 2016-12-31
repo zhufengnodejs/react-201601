@@ -1,0 +1,114 @@
+1.介绍一下React Router
+	 是完整的 React 路由解决方案,保持 UI 与 URL 同步。它拥有简单的 API 与强大的功能，例如代码延迟加载、动态路由匹配、以及帮助建立正确的位置过渡处理。
+2.使用react router的时候使用那几个属性,这几个属性的是做什么的?
+	Router, Route, hashHistory, browserHistory,IndexRoute, IndexLink,link,Redirect
+	Router:是一个组件容器，
+	link:进行导航的切换，
+	IndexLink:
+	hashHistory,browserHistory 页面的历史记录，跟browser的history类似
+	IndexRoute:默认路由，当访问APP组件时，会和APP下的IndexRoute一起展示
+	Redirect:重定向的访问，访问一个路径时，可以跳转到指定的路劲
+
+3.使用Link组件的方法,以及它的缺点
+	to:pathname/query/hash/state
+	缺点:会匹配任何以/开始的子路由，我们访问的/路由器时，只希望展示某一部分组件
+4.切换路由的几种方式
+	第一种：
+	1）导入browserHistory
+	import { Link , IndexLink,browserHistory} from 'react-router'
+
+	2)browserHistory.push(path)、browserHistory.goback(path)...
+
+	第二种：
+	1）App.contextTypes={
+    		router:React.PropTypes.object
+	};
+	export default App
+
+	2）this.context.router.push(path)
+
+	第三种：
+	使用link组件，在组件的to属性上配置路由。
+
+	第四种：
+	使用Redirect重定向组件，在组件的from和to属性上配置从哪个路由跳转到哪个路由
+
+
+5.如何手动切换路由,写个例子
+//index.js
+const router = (
+  <Router history={ hashHistory }>
+    <Route path="/" components={ App }>
+    	 <IndexRoute component={Home} />
+    	 <Route path="/contact" components={ Contact }></Route>
+    	 <Route path="/about" components={ About }></Route>
+    </Route>
+   
+  </Router>
+)
+// App.js
+class App extends Component {
+  handler(e){
+    e.preventDefault();
+    console.log(e.target);
+    const username = e.target.elements[0].value;
+    const repo = e.target.elements[1].value;
+    const path = `about/${username}/${repo}`;
+    browserHistory.push(path);
+  }
+  render(){
+    return (
+      <div>
+        <h1> hello react router~~! </h1>
+        <ul>
+          <li>
+           { /*<Link to="/" activeStyle={{color:'red',fontSize:'40px'}}>首页</Link>*/}
+          <IndexLink to="/" activeStyle={{color:'red',fontSize:'40px'}}>首页</IndexLink>
+          </li>  
+          <li>
+           
+          <Link to={{ pathname: '/contact', query: { name: 'ryan' },hash:'#afa' }} activeStyle={{color:'red',fontSize:'40px'}}>联系我们</Link>
+          </li>   
+           <li>
+            <Link to="/about" activeStyle={{color:'red',fontSize:'40px'}}>关于我们</Link>
+          </li>  
+          <form action="" onSubmit = {this.handler}>
+            <input type="text" placeholder="user name"/>
+            <input type="text" placeholder="pro"/>
+            <button>go with me</button>
+          </form>
+        </ul>
+        {this.props.children}
+      </div>
+    )
+  }
+}
+
+
+App.contextTypes = {
+  router: React.PropTypes.object
+}
+
+export default App
+
+
+render(router, document.getElementById('app'))
+6.怎么使组件具有context属性
+	App.contextTypes = {
+  		router: React.PropTypes.object
+	}
+7.什么是函数式编程?
+	就是把函数本身上升到一等公民的地位，进行构建
+8.什么是纯函数?怎么写一个纯函数
+	一个没有副作用,并且返回值只由输入决定的函数
+	function addPure(x){
+		return function(y){
+			return y + x;
+		}
+	}
+9.什么是函数柯里化?好处是什么
+	定义：只传递函数的一部分参数来调用它，让它返回一个函数去处理剩下的函数
+	好处：参数复用，延迟执行
+10.说一说高阶函数与柯里化函数的区别
+	高阶函数:以一个函数为参数，同时返回一个函数作为函数的返回值,也就是说使用的参数不同
+
